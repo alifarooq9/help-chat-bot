@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import ChatBot from "../components/chatBot";
 
 // import { trpc } from "../utils/trpc";
 
@@ -15,6 +16,8 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <h1>Hello World</h1>
+
+        <ChatBot />
       </main>
     </>
   );
