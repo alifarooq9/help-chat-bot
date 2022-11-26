@@ -6,12 +6,28 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model categories {
+  id        String      @id @unique @default(uuid())
+  label     String      @unique
+  name      String
+  questions questions[]
+}
+
+model questions {
+  id           String     @id @unique @default(uuid())
+  question     String
+  answer       Answer[]
+  categories   categories? @relation(fields: [categoriesId], references: [id])
+  categoriesId String?
+}
+
+model Answer {
+  id          String     @id @unique @default(uuid())
+  answer      String
+  questions   questions? @relation(fields: [questionsId], references: [id])
+  questionsId String?
 }
