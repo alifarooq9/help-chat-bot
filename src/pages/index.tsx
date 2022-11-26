@@ -1,19 +1,8 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import ChatBot from "../components/chatBot";
-import {
-  osName,
-  osVersion,
-  browserName,
-  browserVersion,
-} from "react-device-detect";
-
-// import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  // const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-  console.log(osName, osVersion, browserName, browserVersion);
-
   return (
     <>
       <Head>
@@ -22,58 +11,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen w-full flex-col items-center justify-center">
-        <div className="space-y-3 rounded-3xl border-2 border-black border-opacity-10 p-8">
-          <h2 className="pb-5 text-center text-xl font-bold">Your Info</h2>
-
-          <div className="flex items-center divide-x">
-            <label
-              htmlFor="browser-name"
-              className="w-32 pr-4 text-sm font-semibold opacity-40"
-            >
-              Browser Name
-            </label>
-            <p id="browser-name" className="pl-6">
-              {browserName}
-            </p>
-          </div>
-
-          <div className="flex items-center divide-x">
-            <label
-              htmlFor="browser-version"
-              className="w-32 pr-4 text-sm font-semibold opacity-40"
-            >
-              Browser Version
-            </label>
-            <p id="browser-version" className="pl-6">
-              {browserVersion}
-            </p>
-          </div>
-
-          <div className="flex items-center divide-x">
-            <label
-              htmlFor="os-name"
-              className="w-32 pr-4 text-sm font-semibold opacity-40"
-            >
-              OS Name
-            </label>
-            <p id="os-name" className="pl-6">
-              {osName}
-            </p>
-          </div>
-
-          <div className="flex items-center divide-x">
-            <label
-              htmlFor="os-version"
-              className="w-32 pr-4 text-sm font-semibold opacity-40"
-            >
-              OS Version
-            </label>
-            <p id="os-version" className="pl-6">
-              {osVersion}
-            </p>
-          </div>
-        </div>
-
         <ChatBot />
       </main>
     </>
