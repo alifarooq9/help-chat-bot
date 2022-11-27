@@ -10,19 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model categories {
-  id        String      @id @unique @default(uuid())
-  label     String      @unique
-  name      String
-  questions questions[]
+enum Category {
+  SPORTS
+  MOVIES
+  TECH
 }
 
 model questions {
-  id           String      @id @unique @default(uuid())
-  question     String
-  answer       Answer?
-  categories   categories? @relation(fields: [categoriesId], references: [id])
-  categoriesId String?
+  id       String   @id @unique @default(uuid())
+  question String
+  category Category
+  answer   Answer?
 }
 
 model Answer {

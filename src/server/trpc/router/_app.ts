@@ -1,6 +1,6 @@
 import { answerRouter } from './answers';
 import { router } from "../trpc";
-import { categoriesRouter } from "./categories";
+import { categoriesRouter } from "./router";
 import { questionsRouter } from "./questions";
 
 export const appRouter = router({
