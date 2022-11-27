@@ -1,7 +1,7 @@
-import { MutableRefObject, useEffect, useRef, useState, type FC } from "react";
+import { useState, type FC } from "react";
 import type { MessageHistory } from "../types/message";
 import LatestMessage from "./latestMessage";
-import { useInView, InView } from "react-intersection-observer";
+import { InView } from "react-intersection-observer";
 
 const Chat: FC = () => {
   //all messages
