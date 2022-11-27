@@ -20,41 +20,35 @@ const LatestMessage: FC<Props> = ({ messagesHistory, setMessagesHistory }) => {
   //current question id
   const [currentQuestionId, setCurrentQuestionId] = useState<string>("");
 
-  if (step === "CATEGORY") {
-    return (
-      <CategoryMessage
-        messagesHistory={messagesHistory}
-        setMessagesHistory={setMessagesHistory}
-        setStep={setStep}
-        setCurrentCategory={setCurrentCategory}
-      />
-    );
-  }
-
-  if (step === "QUESTION") {
-    return (
-      <QuestionMessage
-        messagesHistory={messagesHistory}
-        setMessagesHistory={setMessagesHistory}
-        setStep={setStep}
-        currentCategory={currentCategory}
-        setCurrentQuestionId={setCurrentQuestionId}
-      />
-    );
-  }
-
-  if (step === "ANSWER") {
-    return (
-      <AnswerMessage
-        messagesHistory={messagesHistory}
-        setMessagesHistory={setMessagesHistory}
-        setStep={setStep}
-        currentQuestionId={currentQuestionId}
-      />
-    );
-  }
-
-  return <div>Something went wrong</div>;
+  return (
+    <div>
+      {step === "CATEGORY" && (
+        <CategoryMessage
+          messagesHistory={messagesHistory}
+          setMessagesHistory={setMessagesHistory}
+          setStep={setStep}
+          setCurrentCategory={setCurrentCategory}
+        />
+      )}
+      {step === "QUESTION" && (
+        <QuestionMessage
+          messagesHistory={messagesHistory}
+          setMessagesHistory={setMessagesHistory}
+          setStep={setStep}
+          currentCategory={currentCategory}
+          setCurrentQuestionId={setCurrentQuestionId}
+        />
+      )}
+      {step === "ANSWER" && (
+        <AnswerMessage
+          messagesHistory={messagesHistory}
+          setMessagesHistory={setMessagesHistory}
+          setStep={setStep}
+          currentQuestionId={currentQuestionId}
+        />
+      )}
+    </div>
+  );
 };
 
 export default LatestMessage;

@@ -1,6 +1,7 @@
-import { useState, type FC } from "react";
+import { MutableRefObject, useEffect, useRef, useState, type FC } from "react";
 import type { MessageHistory } from "../types/message";
 import LatestMessage from "./latestMessage";
+import { useInView, InView } from "react-intersection-observer";
 
 const Chat: FC = () => {
   //all messages
@@ -9,7 +10,7 @@ const Chat: FC = () => {
   return (
     <>
       <div className="flex-1 overflow-auto p-8">
-        <div className="max-w-xs">
+        <div className="flex max-w-xs flex-col">
           <p className="w-fit rounded-b-3xl rounded-tr-3xl bg-gray-200 p-4">
             Hi, I am ChatBot
           </p>
@@ -38,6 +39,12 @@ const Chat: FC = () => {
           messagesHistory={messagesHistory}
           setMessagesHistory={setMessagesHistory}
         />
+        <InView
+          as="div"
+          onChange={(inView, entry) => {
+            console.log(entry.target.scrollIntoView());
+          }}
+        ></InView>
       </div>
     </>
   );

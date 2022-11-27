@@ -56,7 +56,7 @@ const AnswerMessage: FC<Props> = ({
           ChatBot is typing...
         </p>
       ) : (
-        <>
+        <div>
           <p className="mt-3 w-fit max-w-xs rounded-b-3xl rounded-tr-3xl bg-gray-200 p-4">
             {!data
               ? `Sorry there are no question regarding your question`
@@ -78,7 +78,7 @@ const AnswerMessage: FC<Props> = ({
               Go back to Categories
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

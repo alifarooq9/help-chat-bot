@@ -34,6 +34,7 @@ const CategoryMessage: FC<Props> = ({
       name: "Tech",
     },
   ];
+
   const handleOnClickCategory = async (
     category: Category,
     categoryName: string

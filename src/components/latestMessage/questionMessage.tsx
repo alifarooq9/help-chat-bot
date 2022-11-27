@@ -56,7 +56,7 @@ const QuestionMessage: FC<Props> = ({
           ChatBot is typing...
         </p>
       ) : (
-        <>
+        <div>
           <p className="mt-3 w-fit max-w-xs rounded-b-3xl rounded-tr-3xl bg-gray-200 p-4">
             {data?.length === 0
               ? `Sorry there are no question regarding ${currentCategory} category`
@@ -82,7 +82,7 @@ const QuestionMessage: FC<Props> = ({
               Go back to categories
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
