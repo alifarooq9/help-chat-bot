@@ -1,11 +1,20 @@
 import { useState, type FC } from "react";
+import { fetchAllCategories } from "../utils/useCategories";
 
 const Chat: FC = () => {
+  //message input state
   const [messageInput, setMessageInput] = useState<string>("");
+
+  //fetch all categories
+  const allCategories = fetchAllCategories();
+  console.log(allCategories.data);
 
   return (
     <>
-      <div className="flex-1 overflow-auto bg-gray-200"></div>
+      <div className="flex-1 overflow-auto bg-gray-200">
+          
+      </div>
+
       <div className="flex h-12 w-full items-center px-5">
         <input
           type="text"

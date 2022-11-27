@@ -21,7 +21,7 @@ export const questionsRouter = router({
             question: input?.question as string,
           },
         });
-        return { addQuestion };
+        return addQuestion;
       } catch (error) {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",

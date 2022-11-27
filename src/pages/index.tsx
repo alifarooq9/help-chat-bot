@@ -8,8 +8,8 @@ const Home: NextPage = () => {
   const handleAddCategories = async () => {
     try {
       await addCategoriesRoute.mutateAsync({
-        label: "SPORTS",
-        name: "Sports",
+        label: "MOVIES",
+        name: "Movies",
       });
     } catch (error) {
       console.log(error);

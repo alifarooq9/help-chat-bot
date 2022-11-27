@@ -4,6 +4,17 @@ import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 
 export const categoriesRouter = router({
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    try {
+      const getAllCategories = await ctx.prisma.categories.findMany();
+      return getAllCategories;
+    } catch (error) {
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Something went wrong",
+      });
+    }
+  }),
   add: publicProcedure
     .input(
       z
@@ -22,7 +33,7 @@ export const categoriesRouter = router({
           },
         });
 
-        return { addCategory };
+        return addCategory;
       } catch (error) {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
