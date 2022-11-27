@@ -23,7 +23,7 @@ const Chat: FC = () => {
             }`}
           >
             <p
-              className={`mt-3 w-fit rounded-b-3xl ${
+              className={`mt-3 w-fit max-w-xs rounded-b-3xl ${
                 m.from === "BOT"
                   ? "rounded-tr-3xl bg-gray-200"
                   : "rounded-tl-3xl bg-blue-600 text-white"

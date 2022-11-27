@@ -42,7 +42,7 @@ export const questionAndAnswerRouter = router({
         category: z.enum(["SPORTS", "MOVIES", "TECH"]),
       })
     )
-    .mutation(async ({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
       try {
         const getQuestions = await ctx.prisma.questions.findMany({
           where: {

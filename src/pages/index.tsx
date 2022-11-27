@@ -9,8 +9,8 @@ const Home: NextPage = () => {
     try {
       await mutateAsync({
         category: "SPORTS",
-        answer: "Second questions answer",
-        question: "Second question",
+        answer: "Third questions answer",
+        question: "Thrid question",
       });
     } catch (error) {
       console.log(error);
