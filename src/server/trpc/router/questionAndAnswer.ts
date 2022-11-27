@@ -36,25 +36,35 @@ export const questionAndAnswerRouter = router({
         });
       }
     }),
-  getQuestions: publicProcedure.query(async ({ ctx }) => {
-    try {
-      const getQuestions = await ctx.prisma.questions.findMany();
-      return getQuestions;
-    } catch (error) {
-      throw new TRPCError({
-        code: "INTERNAL_SERVER_ERROR",
-        cause: error,
-        message: "Something went wrong on server",
-      });
-    }
-  }),
+  getQuestions: publicProcedure
+    .input(
+      z.object({
+        category: z.enum(["SPORTS", "MOVIES", "TECH"]),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      try {
+        const getQuestions = await ctx.prisma.questions.findMany({
+          where: {
+            category: input?.category,
+          },
+        });
+        return getQuestions;
+      } catch (error) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          cause: error,
+          message: "Something went wrong on server",
+        });
+      }
+    }),
   getAnswer: publicProcedure
     .input(
       z.object({
         questionId: z.string(),
       })
     )
-    .query(async ({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
       try {
         const getAnswer = await ctx.prisma.answer.findFirst({
           where: {
