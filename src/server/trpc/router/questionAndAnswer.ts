@@ -31,6 +31,41 @@ export const questionAndAnswerRouter = router({
 
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
+          cause: error,
+          message: "Something went wrong on server",
+        });
+      }
+    }),
+  getQuestions: publicProcedure.query(async ({ ctx }) => {
+    try {
+      const getQuestions = await ctx.prisma.questions.findMany();
+      return getQuestions;
+    } catch (error) {
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        cause: error,
+        message: "Something went wrong on server",
+      });
+    }
+  }),
+  getAnswer: publicProcedure
+    .input(
+      z.object({
+        questionId: z.string(),
+      })
+    )
+    .query(async ({ ctx, input }) => {
+      try {
+        const getAnswer = await ctx.prisma.answer.findFirst({
+          where: {
+            questionsId: input?.questionId,
+          },
+        });
+        return getAnswer;
+      } catch (error) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          cause: error,
           message: "Something went wrong on server",
         });
       }

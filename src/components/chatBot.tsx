@@ -46,7 +46,7 @@ const ChatBot: FC = () => {
             >
               <div className="relative flex h-full flex-col">
                 {/* top chat ui */}
-                <div className="flex h-24 w-full flex-col justify-center bg-white px-6">
+                <div className="flex h-24 w-full flex-col justify-center border-b bg-white px-6">
                   <div className="flex w-full items-center justify-between">
                     <div className="flex items-center space-x-5">
                       <div className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-blue-600 p-2 transition-colors duration-300 ease-in-out hover:bg-blue-500">
