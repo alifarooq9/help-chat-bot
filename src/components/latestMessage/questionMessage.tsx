@@ -1,4 +1,5 @@
 import { type Category } from "@prisma/client";
+import { randomUUID } from "crypto";
 import { type Dispatch, type SetStateAction, type FC } from "react";
 import type { MessageHistory, Step } from "../../types/message";
 import { trpc } from "../../utils/trpc";
@@ -41,6 +42,11 @@ const QuestionMessage: FC<Props> = ({
     setStep("ANSWER");
   };
 
+  // go back on step
+  const handleGoBack = () => {
+    setStep("CATEGORY");
+  };
+
   return (
     <div className="w-full">
       {isFetching ? (
@@ -65,6 +71,14 @@ const QuestionMessage: FC<Props> = ({
                   {q.question}
                 </button>
               ))}
+
+            <button
+              onClick={() => handleGoBack()}
+              key="go-back"
+              className="rounded-3xl border border-blue-600 px-4 py-1.5 text-sm text-blue-600 transition-colors duration-300 ease-in-out hover:bg-blue-100"
+            >
+              Go back to categories
+            </button>
           </div>
         </>
       )}
