@@ -1,8 +1,22 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import ChatBot from "../components/chatBot";
+import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
+  const { mutateAsync } = trpc.questionAndAnswer.add.useMutation();
+  const handleAddQuestionAndAnswer = async () => {
+    try {
+      await mutateAsync({
+        category: "SPORTS",
+        answer: "This is a answer",
+        question: "This is a question",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -11,6 +25,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen w-full flex-col items-center justify-center">
+        <button onClick={handleAddQuestionAndAnswer}>
+          Add Question and Answer
+        </button>
+
         <ChatBot />
       </main>
     </>
