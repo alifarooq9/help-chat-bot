@@ -28,6 +28,18 @@ const Home: NextPage = () => {
     }
   };
 
+  const addAnswerRoute = trpc.answer.add.useMutation();
+  const handAnswertions = async () => {
+    try {
+      await addAnswerRoute.mutateAsync({
+        answer: "This is a answer",
+        id: "121ad082-ffff-40f1-94de-27e2253fe27c",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -38,6 +50,7 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen w-full flex-col items-center justify-center">
         <button onClick={handleAddCategories}>Add Category</button>
         <button onClick={handleAddQuestions}>Add Question</button>
+        <button onClick={handAnswertions}>Add Answer</button>
 
         <ChatBot />
       </main>
