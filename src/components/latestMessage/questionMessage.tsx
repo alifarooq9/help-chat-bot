@@ -1,5 +1,4 @@
 import { type Category } from "@prisma/client";
-import { randomUUID } from "crypto";
 import { type Dispatch, type SetStateAction, type FC } from "react";
 import type { MessageHistory, Step } from "../../types/message";
 import { trpc } from "../../utils/trpc";
@@ -9,6 +8,7 @@ type Props = {
   setMessagesHistory: Dispatch<SetStateAction<MessageHistory[]>>;
   setStep: Dispatch<SetStateAction<Step>>;
   currentCategory: Category;
+  setCurrentQuestionId: Dispatch<SetStateAction<string>>;
 };
 
 const QuestionMessage: FC<Props> = ({
@@ -16,6 +16,7 @@ const QuestionMessage: FC<Props> = ({
   messagesHistory,
   setMessagesHistory,
   setStep,
+  setCurrentQuestionId,
 }) => {
   //question route
   const { data, isFetching } = trpc.questionAndAnswer.getQuestions.useQuery({
@@ -39,6 +40,7 @@ const QuestionMessage: FC<Props> = ({
         message: question,
       },
     ]);
+    setCurrentQuestionId(id);
     setStep("ANSWER");
   };
 

@@ -64,7 +64,7 @@ export const questionAndAnswerRouter = router({
         questionId: z.string(),
       })
     )
-    .mutation(async ({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
       try {
         const getAnswer = await ctx.prisma.answer.findFirst({
           where: {
