@@ -12,8 +12,8 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen w-full flex-col items-center justify-center">
-        <h4 className="text-xl font-medium">
+      <main className="flex min-h-screen w-full flex-col items-center justify-center py-20 px-6">
+        <h4 className="text-center text-xl font-medium">
           Try help ChatBot in bottom left corner of the screen
         </h4>
         <p className="mt-5 text-black text-opacity-70">
