@@ -21,7 +21,7 @@ const ChatBot: FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6">
+    <div className="fixed bottom-6 right-6 z-50">
       <div className="relative">
         {/* chat bot icon */}
         {isOpen === false && (
@@ -42,7 +42,7 @@ const ChatBot: FC = () => {
               initial="close"
               exit="close"
               transition={{ duration: 0.2 }}
-              className="fixed bottom-0 right-0 h-screen w-screen overflow-hidden bg-white drop-shadow-2xl sm:absolute sm:bottom-16 sm:h-[40rem] sm:max-w-md sm:rounded-2xl"
+              className="fixed bottom-0 right-0 h-full w-screen overflow-hidden bg-white drop-shadow-2xl sm:absolute sm:bottom-16 sm:h-[40rem] sm:max-w-md sm:rounded-2xl"
             >
               <div className="relative flex h-full flex-col">
                 {/* top chat ui */}

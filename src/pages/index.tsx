@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Navbar from "../components/navbar";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,8 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
+
       <main className="flex min-h-screen w-full flex-col items-center justify-center py-20 px-6">
         <h4 className="text-center text-xl font-medium">
           Try help ChatBot in bottom left corner of the screen
