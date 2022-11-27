@@ -16,7 +16,7 @@ const ChatBot: FC = () => {
     },
     close: {
       opacity: 0,
-      bottom: "-100px",
+      bottom: "-70px",
     },
   };
 

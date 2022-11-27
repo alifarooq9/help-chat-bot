@@ -18,9 +18,9 @@ model categories {
 }
 
 model questions {
-  id           String     @id @unique @default(uuid())
+  id           String      @id @unique @default(uuid())
   question     String
-  answer       Answer[]
+  answer       Answer?
   categories   categories? @relation(fields: [categoriesId], references: [id])
   categoriesId String?
 }
@@ -29,5 +29,5 @@ model Answer {
   id          String     @id @unique @default(uuid())
   answer      String
   questions   questions? @relation(fields: [questionsId], references: [id])
-  questionsId String?
+  questionsId String?    @unique
 }

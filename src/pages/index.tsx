@@ -1,8 +1,33 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import ChatBot from "../components/chatBot";
+import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
+  const addCategoriesRoute = trpc.categories.add.useMutation();
+  const handleAddCategories = async () => {
+    try {
+      await addCategoriesRoute.mutateAsync({
+        label: "SPORTS",
+        name: "Sports",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const addQuestionsRoute = trpc.questions.add.useMutation();
+  const handleAddQuestions = async () => {
+    try {
+      await addQuestionsRoute.mutateAsync({
+        question: "This is sencond a question",
+        id: "2dcebd6a-e550-4f0f-9d13-ac3333abe0cc",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -11,6 +36,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen w-full flex-col items-center justify-center">
+        <button onClick={handleAddCategories}>Add Category</button>
+        <button onClick={handleAddQuestions}>Add Question</button>
+
         <ChatBot />
       </main>
     </>
