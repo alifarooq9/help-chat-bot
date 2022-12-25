@@ -4,7 +4,7 @@ help chatbot is used in website to help the audience about their queries
 
 ### live website
 
-https://help-chat-bot.vercel.app/
+https://helpchatbot.alidotm.me
 
 ### stack used
 
