@@ -31,17 +31,28 @@ const Home: NextPage = () => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://github.com/AliMuhammadf5"
+            href="https://github.com/alidotm"
             className="font-medium text-blue-600"
           >
-            github/AliMuhammadf5
+            github/alidotm
           </a>
         </p>
         <p className="text-black text-opacity-70">
           Email:{" "}
           <span className="font-medium text-black text-opacity-100">
-            alimuhammadfc5+work@gmail.com
+            hello@alidotm.me
           </span>
+        </p>
+        <p className="text-black text-opacity-70">
+          Website:{" "}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.alidotm.me/"
+            className="font-medium text-blue-600"
+          >
+            alidotm.me
+          </a>
         </p>
       </main>
     </>
